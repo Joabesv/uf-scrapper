@@ -1,0 +1,40 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "files": {
+    "ignore": [".nuxt/*", "node_modules/*"],
+    "include": [
+      "components/*",
+      "public/*",
+      "*.vue",
+      "server/*",
+      "lib/*",
+      "pages/*",
+      "composables/*",
+      "plugins/*"
+    ]
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "recommended": false
+      },
+      "nursery": {
+        "useSortedClasses": "error"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
+}
