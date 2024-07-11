@@ -15,8 +15,8 @@ type Chartered = {
 
 export default defineEventHandler(async (event) => {
   const { UF_CHARTERED } = useRuntimeConfig()
-  const chartedHTMLData = await $fetch<string>(UF_CHARTERED)
-  const page = parse(chartedHTMLData);
+  const charteredHTMLPage = await $fetch<string>(UF_CHARTERED)
+  const page = parse(charteredHTMLPage);
   const [, title] = page.querySelectorAll('h1')
   const weekdayItinerary = page.querySelector('#tabela-horarios')
   const itineraryHeader = weekdayItinerary?.querySelector('thead > tr')
@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
   if (!itineraryHeader || !itinerary) {
     throw createError({
       statusCode: 500,
-      statusMessage: 'Could not grad itinerary'
+      statusMessage: 'Could not get itinerary'
     })
   }
 
