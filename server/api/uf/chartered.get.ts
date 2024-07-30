@@ -1,17 +1,6 @@
 import { parse } from "node-html-parser"
 import { CHARTERED_LINE, SA_CHARTERED_END, SA_CHARTERED_LEAVE, SA_TERMINAL_STOP, SBC_CHARTERED_END, SBC_CHARTERED_LEAVE, SBC_TERMINAL_STOP } from "~/server/utils/chartered";
-
-type UFCharteredLines = "1" | "2" | "3" | "4" | "5" | "6"
-type UFCampus = 'sa' | 'sbc'
-type CharteredSchedule = {
-  startDate: `${string}:${string}` | '---';
-  endDate: `${string}:${string}` | '---'
-  terminalStop?: `${string}:${string}` | '---'
-}
-type CharteredClock = Record<UFCampus, Array<CharteredSchedule>>
-type Chartered = {
-  [key in UFCharteredLines]: CharteredClock
-}
+import type { Chartered, UFCharteredLines } from "~/common/types";
 
 export default defineEventHandler(async (event) => {
   const { UF_CHARTERED } = useRuntimeConfig()
